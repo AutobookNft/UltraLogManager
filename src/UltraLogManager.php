@@ -5,92 +5,100 @@ namespace Fabio\UltraLogManager;
 use Fabio\PerfectConfigManager\ConfigManager;
 use Illuminate\Support\Facades\Log;
 
-/**
- * Class UltraLogManager
- *
- * Provides a convenient interface to manage logs across different channels,
- * with consistent formatting and support for various logging levels.
- *
- * @package Fabio\UltraLogManager
- */
+use Throwable;
+
 class UltraLogManager
 {
+    protected static string $routeChannel;
+    protected static string $encodedLogParams;
+
     /**
-     * Log a message to the given channel at the desired level.
+     * Initialize log channel using ConfigManager.
      *
-     * @param string $channel The log channel to use.
-     * @param string $level The level of the log (e.g., 'info', 'debug', 'error').
-     * @param string $message The message to log.
-     * @param array $context Additional context information.
      * @return void
      */
-    public static function log(string $channel, string $level, string $message, array $context = []): void
+    private static function initialize(): void
     {
-        // Set up log parameters in a structured way
-        $encodedLogParams = json_encode([
-            'Class' => 'UltraLogManager',
-            'Level' => $level,
-        ]);
-
-        // Append encoded parameters to the context to keep structure consistent
-        $context['encoded_log_params'] = $encodedLogParams;
-
-        // Log to the specified channel with the provided level
-        Log::channel($channel)->{$level}($message, $context);
+        try {
+            // Retrieve the log channel from the config using ConfigManager
+            self::$routeChannel = ConfigManager::getConfig('log_channel', 'error_manager');
+        } catch (Throwable $e) {
+            // Fall back to a default channel if ConfigManager fails
+            self::$routeChannel = 'stack';
+        }
     }
 
     /**
-     * Log an informational message.
+     * Set log parameters.
      *
-     * @param string $message The message to log.
-     * @param array $context Additional context information.
+     * @param string $class
+     * @param string $method
      * @return void
      */
-    public static function info(string $message, array $context = []): void
+    private static function setLogParams(string $class, string $method): void
     {
-        $channel = ConfigManager::getConfig('log_channel', 'log_manager');
-        self::log($channel, 'info', $message, $context);
-    }
-
-    /**
-     * Log a debug message.
-     *
-     * @param string $message The message to log.
-     * @param array $context Additional context information.
-     * @return void
-     */
-    public static function debug(string $message, array $context = []): void
-    {
-        $channel = ConfigManager::getConfig('log_channel', 'log_manager');
-        self::log($channel, 'debug', $message, $context);
-    }
-
-    /**
-     * Log an error message.
-     *
-     * @param string $message The message to log.
-     * @param array $context Additional context information.
-     * @return void
-     */
-    public static function error(string $message, array $context = []): void
-    {
-        $channel = ConfigManager::getConfig('log_channel', 'log_manager');
-        self::log($channel, 'error', $message, $context);
-    }
-
-    /**
-     * Set log parameters for detailed structured logging.
-     *
-     * @param string $class The class where the log originates.
-     * @param string $method The method where the log originates.
-     * @return array
-     */
-    public static function setLogParams(string $class, string $method): array
-    {
-        return [
+        self::$encodedLogParams = json_encode([
             'Class' => $class,
             'Method' => $method,
-            'Timestamp' => now()->toDateTimeString(),
+        ]);
+    }
+
+    /**
+     * Log a message.
+     *
+     * @param string $level The log level (info, error, warning, etc.)
+     * @param string $action The action being logged
+     * @param string $message The message to log
+     * @param string|null $class The class from which the log is generated
+     * @param string|null $method The method from which the log is generated
+     * @return void
+     */
+    public static function log(string $level, string $action, string $message, string $class = null, string $method = null): void
+    {
+        // Initialize log channel
+        self::initialize();
+
+        // If class and method are not provided, get the calling context
+        if ($class === null || $method === null) {
+            [$callerClass, $callerMethod] = self::getCallerContext();
+            $class = $class ?? $callerClass;
+            $method = $method ?? $callerMethod;
+        }
+
+        // Set log parameters
+        self::setLogParams($class, $method);
+
+        // Create log with specified channel or fall back to 'stack'
+        try {
+            Log::channel(self::$routeChannel)->{$level}(self::$encodedLogParams, [
+                'Type' => $action,
+                'Message' => $message,
+            ]);
+        } catch (Throwable $e) {
+            // If the channel is invalid, use Laravel's default channel
+            Log::channel('stack')->{$level}(self::$encodedLogParams, [
+                'Type' => $action,
+                'Message' => $message,
+                'FallbackChannel' => true,  // Indication that fallback channel was used
+            ]);
+        }
+    }
+
+    /**
+     * Get the calling class and method.
+     *
+     * @return array
+     */
+    private static function getCallerContext(): array
+    {
+        $backtrace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 3);
+
+        // Index 2 should represent the caller of the 'log' method
+        $caller = $backtrace[2] ?? null;
+
+        return [
+            $caller['class'] ?? 'UnknownClass',
+            $caller['function'] ?? 'UnknownMethod',
         ];
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Fabio\UltraLogManager\Providers;
 
+use Fabio\UltraLogManager\UltraLogManager;
 use Illuminate\Support\ServiceProvider;
 
 class UltraLogManagerServiceProvider extends ServiceProvider
@@ -13,7 +14,14 @@ class UltraLogManagerServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        
+        $this->app->singleton('ultralogmanager', function ($app) {
+            return new UltraLogManager();
+        });
+        
         $this->mergeConfigFrom(__DIR__ . '/../Config/logging.php', 'logging');
+
+
     }
 
     /**
