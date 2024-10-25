@@ -65,14 +65,19 @@ class UltraLogManager
      */
     private static function getCallerContext(): array
     {
-        $backtrace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 3);
+        $backtrace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 5);
 
-        // Index 2 should represent the caller of the 'log' method
-        $caller = $backtrace[2] ?? null;
+        // Traverse the backtrace to find the actual calling context, skipping facades and this logger itself
+        foreach ($backtrace as $trace) {
+            if (isset($trace['class']) && !str_contains($trace['class'], 'Facade') && $trace['class'] !== self::class) {
+                return [
+                    $trace['class'] ?? 'UnknownClass',
+                    $trace['function'] ?? 'UnknownMethod',
+                ];
+            }
+        }
 
-        return [
-            $caller['class'] ?? 'UnknownClass',
-            $caller['function'] ?? 'UnknownMethod',
-        ];
+        // Fallback in case the correct caller could not be identified
+        return ['UnknownClass', 'UnknownMethod'];
     }
 }
