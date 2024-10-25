@@ -27,5 +27,6 @@
                 "Fabio\\PerfectConfigManager\\Providers\\ValidationServiceProvider"
             ]
         }
+       
 }
 }

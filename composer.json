@@ -13,6 +13,9 @@
             "providers": [
                 "Fabio\\UltraLogManager\\Providers\\UltraLogManagerServiceProvider"
             ]
+        },
+        "aliases": {
+            "UltraLog": "Fabio\\UltraLogManager\\Facades\\UltraLog"
         }
         
     },
