@@ -20,7 +20,7 @@ class UltraLogManagerServiceProvider extends ServiceProvider
             return new UltraLogManager();
         });
         
-        $this->mergeConfigFrom(__DIR__ . '/../Config/logging.php', 'logging');
+        $this->mergeConfigFrom(__DIR__ . '/../config/logging.php', 'logging');
 
 
     }
@@ -34,7 +34,7 @@ class UltraLogManagerServiceProvider extends ServiceProvider
     {
         // Make the logging configuration publishable, so the users can override it if needed
         $this->publishes([
-            __DIR__ . '/../Config/logging.php' => config_path('logging.php'),
+            __DIR__ . '/../config/logging.php' => config_path('logging.php'),
         ]);
     }
 }
