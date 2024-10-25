@@ -1,6 +1,6 @@
 <?php
 
-namespace Fabio\UltraSecureUpload\Traits;
+namespace Fabio\UltraLogManager\Traits;
 
 use Fabio\UltraSecureUpload\Exceptions\CustomException;
 use Fabio\UltraSecureUpload\Services\TestingConditionsManager;

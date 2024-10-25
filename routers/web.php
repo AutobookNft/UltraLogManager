@@ -4,7 +4,7 @@
  * @var \Illuminate\Routing\Router $router
  */
 
-use Fabio\UltraSecureUpload\Http\Controllers\UploadController;
+use Fabio\UltraLogManager\Http\Controllers\UploadController;
 use Illuminate\Support\Facades\Route;
 
  Route::middleware(['auth'])
