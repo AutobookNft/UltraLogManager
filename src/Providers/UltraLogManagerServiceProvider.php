@@ -15,6 +15,7 @@ class UltraLogManagerServiceProvider extends ServiceProvider
     public function register()
     {
         
+        // Register the UltraLogManager class
         $this->app->singleton('ultralogmanager', function ($app) {
             return new UltraLogManager();
         });
