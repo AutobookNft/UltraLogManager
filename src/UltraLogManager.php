@@ -2,15 +2,13 @@
 
 namespace Fabio\UltraLogManager;
 
-use Fabio\PerfectConfigManager\ConfigManager;
 use Illuminate\Support\Facades\Log;
-
+use Fabio\PerfectConfigManager\ConfigManager;
 use Throwable;
 
 class UltraLogManager
 {
     protected static string $routeChannel;
-    protected static string $encodedLogParams;
 
     /**
      * Initialize log channel using ConfigManager.
@@ -29,58 +27,34 @@ class UltraLogManager
     }
 
     /**
-     * Set log parameters.
-     *
-     * @param string $class
-     * @param string $method
-     * @return void
-     */
-    private static function setLogParams(string $class, string $method): void
-    {
-        self::$encodedLogParams = json_encode([
-            'Class' => $class,
-            'Method' => $method,
-        ]);
-    }
-
-    /**
      * Log a message.
      *
      * @param string $level The log level (info, error, warning, etc.)
-     * @param string $action The action being logged
+     * @param string $type The action being logged
      * @param string $message The message to log
-     * @param string|null $class The class from which the log is generated
-     * @param string|null $method The method from which the log is generated
+     * @param array $context Additional context information to log
      * @return void
      */
-    public static function log(string $level, string $action, string $message, string $class = null, string $method = null): void
+    public static function log(string $level, string $type, string $message, array $context = []): void
     {
         // Initialize log channel
         self::initialize();
 
-        // If class and method are not provided, get the calling context
-        if ($class === null || $method === null) {
-            [$callerClass, $callerMethod] = self::getCallerContext();
-            $class = $class ?? $callerClass;
-            $method = $method ?? $callerMethod;
-        }
-
-        // Set log parameters
-        self::setLogParams($class, $method);
+        // Get the calling class and method
+        [$callerClass, $callerMethod] = self::getCallerContext();
+        $context['Class'] = $callerClass;
+        $context['Method'] = $callerMethod;
+        $context['Type'] = $type;
+        $context['Message'] = $message;
 
         // Create log with specified channel or fall back to 'stack'
         try {
-            Log::channel(self::$routeChannel)->{$level}(self::$encodedLogParams, [
-                'Type' => $action,
-                'Message' => $message,
-            ]);
+            Log::channel(self::$routeChannel)->{$level}('', $context);
         } catch (Throwable $e) {
             // If the channel is invalid, use Laravel's default channel
-            Log::channel('stack')->{$level}(self::$encodedLogParams, [
-                'Type' => $action,
-                'Message' => $message,
-                'FallbackChannel' => true,  // Indication that fallback channel was used
-            ]);
+            Log::channel('stack')->{$level}('', array_merge($context, [
+                'FallbackChannel' => true, // Indication that fallback channel was used
+            ]));
         }
     }
 
