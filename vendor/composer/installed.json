@@ -527,8 +527,8 @@
         },
         {
             "name": "fabiocherici/perfect-config-manager",
-            "version": "v1.1.0",
-            "version_normalized": "1.1.0.0",
+            "version": "1.0.0",
+            "version_normalized": "1.0.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/AutobookNft/ConfigManager.git",
@@ -574,7 +574,7 @@
             "description": "A configuration management library designed for Laravel to streamline handling configuration values with validation support.",
             "support": {
                 "issues": "https://github.com/AutobookNft/ConfigManager/issues",
-                "source": "https://github.com/AutobookNft/ConfigManager/tree/v1.1.0"
+                "source": "https://github.com/AutobookNft/ConfigManager/tree/1.0.0"
             },
             "install-path": "../fabiocherici/perfect-config-manager"
         },

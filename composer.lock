@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c697938b4d1592257ab01faffab83792",
+    "content-hash": "1bf3f62f2a4047df92279dbc13f8a4cc",
     "packages": [
         {
             "name": "brick/math",
@@ -512,7 +512,7 @@
         },
         {
             "name": "fabiocherici/perfect-config-manager",
-            "version": "v1.1.0",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/AutobookNft/ConfigManager.git",
@@ -556,7 +556,7 @@
             "description": "A configuration management library designed for Laravel to streamline handling configuration values with validation support.",
             "support": {
                 "issues": "https://github.com/AutobookNft/ConfigManager/issues",
-                "source": "https://github.com/AutobookNft/ConfigManager/tree/v1.1.0"
+                "source": "https://github.com/AutobookNft/ConfigManager/tree/1.0.0"
             },
             "time": "2024-10-23T16:35:57+00:00"
         },

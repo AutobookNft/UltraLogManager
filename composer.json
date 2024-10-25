@@ -31,6 +31,6 @@
         "laravel/framework": "^11.29",
         "illuminate/support": "*",
         "monolog/monolog": "^3.7",
-        "fabiocherici/perfect-config-manager": "v1.1.0"
+        "fabiocherici/perfect-config-manager": "1.0.0"
     }
 }

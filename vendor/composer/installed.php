@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'fabiocherici/ultra-log-manager',
-        'pretty_version' => '1.1.0',
-        'version' => '1.1.0.0',
-        'reference' => null,
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => 'bc2c645e9c46b32a718ec4bfaf5c96208867e97e',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -74,8 +74,8 @@
             'dev_requirement' => false,
         ),
         'fabiocherici/perfect-config-manager' => array(
-            'pretty_version' => 'v1.1.0',
-            'version' => '1.1.0.0',
+            'pretty_version' => '1.0.0',
+            'version' => '1.0.0.0',
             'reference' => 'c7be860a1cac908255dc9c7a90f528362d327545',
             'type' => 'library',
             'install_path' => __DIR__ . '/../fabiocherici/perfect-config-manager',
@@ -83,9 +83,9 @@
             'dev_requirement' => false,
         ),
         'fabiocherici/ultra-log-manager' => array(
-            'pretty_version' => '1.1.0',
-            'version' => '1.1.0.0',
-            'reference' => null,
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => 'bc2c645e9c46b32a718ec4bfaf5c96208867e97e',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
