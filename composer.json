@@ -3,7 +3,7 @@
     "description": "Ultra Log Manager is a library to standardize error and info logging for all Fabio's projects.",
     "type": "library",
     "license": "MIT",
-    "version": "v2.0.0",
+    "version": "1.0.0",
     "autoload": {
         "psr-4": {
             "Fabio\\UltraSecureUpload\\": "src/"
