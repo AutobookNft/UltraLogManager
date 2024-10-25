@@ -124,8 +124,8 @@ class ComposerStaticInit1bf3f62f2a4047df92279dbc13f8a4cc
         'F' => 
         array (
             'Fruitcake\\Cors\\' => 15,
-            'Fabio\\UltraSecureUpload\\' => 24,
-            'Fabio\\ConfigManager\\' => 20,
+            'Fabio\\UltraLogManager\\' => 22,
+            'Fabio\\PerfectConfigManager\\' => 27,
         ),
         'E' => 
         array (
@@ -382,11 +382,11 @@ class ComposerStaticInit1bf3f62f2a4047df92279dbc13f8a4cc
         array (
             0 => __DIR__ . '/..' . '/fruitcake/php-cors/src',
         ),
-        'Fabio\\UltraSecureUpload\\' => 
+        'Fabio\\UltraLogManager\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),
-        'Fabio\\ConfigManager\\' => 
+        'Fabio\\PerfectConfigManager\\' => 
         array (
             0 => __DIR__ . '/..' . '/fabiocherici/perfect-config-manager/src',
         ),

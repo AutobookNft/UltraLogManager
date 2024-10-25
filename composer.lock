@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1bf3f62f2a4047df92279dbc13f8a4cc",
+    "content-hash": "8c503a1ca4f3ef4404b19229a7253302",
     "packages": [
         {
             "name": "brick/math",
@@ -512,16 +512,16 @@
         },
         {
             "name": "fabiocherici/perfect-config-manager",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/AutobookNft/ConfigManager.git",
-                "reference": "c7be860a1cac908255dc9c7a90f528362d327545"
+                "reference": "9cd172057006ff158c978d9e79618433a466cccd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AutobookNft/ConfigManager/zipball/c7be860a1cac908255dc9c7a90f528362d327545",
-                "reference": "c7be860a1cac908255dc9c7a90f528362d327545",
+                "url": "https://api.github.com/repos/AutobookNft/ConfigManager/zipball/9cd172057006ff158c978d9e79618433a466cccd",
+                "reference": "9cd172057006ff158c978d9e79618433a466cccd",
                 "shasum": ""
             },
             "require": {
@@ -540,7 +540,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "Fabio\\ConfigManager\\": "src/"
+                    "Fabio\\PerfectConfigManager\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -556,9 +556,9 @@
             "description": "A configuration management library designed for Laravel to streamline handling configuration values with validation support.",
             "support": {
                 "issues": "https://github.com/AutobookNft/ConfigManager/issues",
-                "source": "https://github.com/AutobookNft/ConfigManager/tree/1.0.0"
+                "source": "https://github.com/AutobookNft/ConfigManager/tree/1.0.1"
             },
-            "time": "2024-10-23T16:35:57+00:00"
+            "time": "2024-10-25T13:53:26+00:00"
         },
         {
             "name": "fruitcake/php-cors",
