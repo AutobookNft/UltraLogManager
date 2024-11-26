@@ -30,6 +30,6 @@
         "php": ">=8.1",
         "laravel/framework": "^11.29",
         "illuminate/support": "*",
-        "monolog/monolog": "^3.7",
+        "monolog/monolog": "^3.7"
     }
 }
