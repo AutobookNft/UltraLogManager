@@ -64,7 +64,7 @@ return array(
     'GrahamCampbell\\ResultType\\' => array($vendorDir . '/graham-campbell/result-type/src'),
     'Fruitcake\\Cors\\' => array($vendorDir . '/fruitcake/php-cors/src'),
     'Fabio\\UltraLogManager\\' => array($baseDir . '/src'),
-    'Fabio\\PerfectConfigManager\\' => array($vendorDir . '/fabiocherici/perfect-config-manager/src'),
+    'Fabio\\PerfectConfigManager\\' => array($vendorDir . '/fabiocherici/ultra-config-manager/src'),
     'Egulias\\EmailValidator\\' => array($vendorDir . '/egulias/email-validator/src'),
     'Dotenv\\' => array($vendorDir . '/vlucas/phpdotenv/src'),
     'Doctrine\\Inflector\\' => array($vendorDir . '/doctrine/inflector/lib/Doctrine/Inflector'),

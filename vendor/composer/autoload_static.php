@@ -388,7 +388,7 @@ class ComposerStaticInit1bf3f62f2a4047df92279dbc13f8a4cc
         ),
         'Fabio\\PerfectConfigManager\\' => 
         array (
-            0 => __DIR__ . '/..' . '/fabiocherici/perfect-config-manager/src',
+            0 => __DIR__ . '/..' . '/fabiocherici/ultra-config-manager/src',
         ),
         'Egulias\\EmailValidator\\' => 
         array (

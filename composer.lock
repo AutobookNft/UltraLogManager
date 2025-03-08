@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8c503a1ca4f3ef4404b19229a7253302",
+    "content-hash": "3cc149e9a5804764af80de91f089efe7",
     "packages": [
         {
             "name": "brick/math",
@@ -511,16 +511,16 @@
             "time": "2023-10-06T06:47:41+00:00"
         },
         {
-            "name": "fabiocherici/perfect-config-manager",
+            "name": "fabiocherici/ultra-config-manager",
             "version": "1.0.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/AutobookNft/ConfigManager.git",
+                "url": "https://github.com/AutobookNft/UltraConfigManager.git",
                 "reference": "9cd172057006ff158c978d9e79618433a466cccd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AutobookNft/ConfigManager/zipball/9cd172057006ff158c978d9e79618433a466cccd",
+                "url": "https://api.github.com/repos/AutobookNft/UltraConfigManager/zipball/9cd172057006ff158c978d9e79618433a466cccd",
                 "reference": "9cd172057006ff158c978d9e79618433a466cccd",
                 "shasum": ""
             },
@@ -543,7 +543,6 @@
                     "Fabio\\PerfectConfigManager\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -555,8 +554,8 @@
             ],
             "description": "A configuration management library designed for Laravel to streamline handling configuration values with validation support.",
             "support": {
-                "issues": "https://github.com/AutobookNft/ConfigManager/issues",
-                "source": "https://github.com/AutobookNft/ConfigManager/tree/1.0.1"
+                "source": "https://github.com/AutobookNft/UltraConfigManager/tree/1.0.1",
+                "issues": "https://github.com/AutobookNft/UltraConfigManager/issues"
             },
             "time": "2024-10-25T13:53:26+00:00"
         },

@@ -17,7 +17,6 @@
         "aliases": {
             "UltraLog": "Fabio\\UltraLogManager\\Facades\\UltraLog"
         }
-        
     },
     "authors": [
         {
@@ -28,9 +27,15 @@
     "minimum-stability": "stable",
     "require": {
         "php": ">=8.1",
-        "laravel/framework": "^11.29",
+        "laravel/framework": "^12.0",
         "illuminate/support": "*",
         "monolog/monolog": "^3.7",
-        "fabiocherici/perfect-config-manager": "1.0.1"
-    }
+        "fabiocherici/ultra-config-manager": "^1.0"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/AutobookNft/UltraConfigManager"
+        }
+    ]
 }

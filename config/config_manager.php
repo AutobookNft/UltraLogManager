@@ -30,6 +30,34 @@ return [
     */
     'log_channel' => env('ULTRA_LOG_MANAGER_LOG_CHANNEL', 'log_manager'),
 
+
+    /*
+    |--------------------------------------------------------------------------
+    | Initial depth of debug_backtrace
+    |--------------------------------------------------------------------------
+    |
+    | The initial depth of the debug_backtrace function used to retrieve the
+    | caller context. This value can be set in the .env file using the variable
+    | ULTRA_LOG_MANAGER_BACKTRACE_DEPTH. By default, it will use 3.
+    |
+    | Example: ULTRA_LOG_MANAGER_BACKTRACE_DEPTH=3
+    */
+    'log_backtrace_depth' => env('ULTRA_LOG_MANAGER_BACKTRACE_DEPTH', 3),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Maximum depth limit in debug_backtrace
+    |--------------------------------------------------------------------------
+    |
+    | The maximum depth limit of the debug_backtrace function used to retrieve
+    | the caller context. This value can be set in the .env file using the variable
+    | ULTRA_LOG_MANAGER_BACKTRACE_LIMIT. By default, it will use 5.
+    |
+    | Example: ULTRA_LOG_MANAGER_BACKTRACE_LIMIT=5
+    */
+    'backtrace_limit' => env('ULTRA_LOG_MANAGER_BACKTRACE_LIMIT', 7),
+
+
     /*
     |--------------------------------------------------------------------------
     | Supported Languages

@@ -526,17 +526,17 @@
             "install-path": "../egulias/email-validator"
         },
         {
-            "name": "fabiocherici/perfect-config-manager",
+            "name": "fabiocherici/ultra-config-manager",
             "version": "1.0.1",
             "version_normalized": "1.0.1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/AutobookNft/ConfigManager.git",
+                "url": "https://github.com/AutobookNft/UltraConfigManager.git",
                 "reference": "9cd172057006ff158c978d9e79618433a466cccd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AutobookNft/ConfigManager/zipball/9cd172057006ff158c978d9e79618433a466cccd",
+                "url": "https://api.github.com/repos/AutobookNft/UltraConfigManager/zipball/9cd172057006ff158c978d9e79618433a466cccd",
                 "reference": "9cd172057006ff158c978d9e79618433a466cccd",
                 "shasum": ""
             },
@@ -561,7 +561,6 @@
                     "Fabio\\PerfectConfigManager\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -573,10 +572,10 @@
             ],
             "description": "A configuration management library designed for Laravel to streamline handling configuration values with validation support.",
             "support": {
-                "issues": "https://github.com/AutobookNft/ConfigManager/issues",
-                "source": "https://github.com/AutobookNft/ConfigManager/tree/1.0.1"
+                "source": "https://github.com/AutobookNft/UltraConfigManager/tree/1.0.1",
+                "issues": "https://github.com/AutobookNft/UltraConfigManager/issues"
             },
-            "install-path": "../fabiocherici/perfect-config-manager"
+            "install-path": "../fabiocherici/ultra-config-manager"
         },
         {
             "name": "fruitcake/php-cors",
