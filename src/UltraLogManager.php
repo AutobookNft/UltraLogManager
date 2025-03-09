@@ -4,7 +4,7 @@ namespace Fabio\UltraLogManager;
 
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\App;
-use Fabio\PerfectConfigManager\ConfigManager;
+use Ultra\UltraConfigManager\UltraConfigManager;
 use Throwable;
 
 class UltraLogManager
@@ -26,7 +26,7 @@ class UltraLogManager
     {
         try {
             // Retrieve the log channel from the config using ConfigManager
-            $this->routeChannel = ConfigManager::getConfig('log_channel', 'error_manager');
+            $this->routeChannel = UltraConfigManager::getConfig('log_channel', 'error_manager');
         } catch (Throwable $e) {
             // Fall back to a default channel if ConfigManager fails
             $this->routeChannel = 'stack';
@@ -106,8 +106,8 @@ class UltraLogManager
     private function getCallerContext(): array
     {
         // Recupera la profondità dal ConfigManager
-        $initialDepth = ConfigManager::getConfig('log_backtrace_depth', 3);
-        $backtrace_limit = ConfigManager::getConfig('backtrace_limit', 5);
+        $initialDepth = UltraConfigManager::getConfig('log_backtrace_depth', 3);
+        $backtrace_limit = UltraConfigManager::getConfig('backtrace_limit', 5);
             
         // Partiamo con la profondità configurata
         $currentDepth = $initialDepth;
