@@ -30,7 +30,7 @@
         "laravel/framework": "^9.0",
         "illuminate/support": "*",
         "monolog/monolog": "^3.7",
-        "fabiocherici/ultra-config-manager": "^1.0.2"
+        "fabiocherici/ultra-config-manager": "dev-main"
     },
     "repositories": [
         {
