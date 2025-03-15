@@ -26,10 +26,10 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "php": ">=8.1",
-        "laravel/framework": "^10.0",
+       "php": "^8.1|^8.2|^8.3",
+        "laravel/framework": "^11.0",
+        "monolog/monolog": "^3.0",
         "illuminate/support": "*",
-        "monolog/monolog": "^3.7",
         "fabiocherici/ultra-config-manager": "dev-main"
     },
     "repositories": [
