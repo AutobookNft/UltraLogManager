@@ -5,7 +5,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Fabio\\UltraLogManager\\": "src/"
+            "Ultra\\UltraLogManager\\": "src/"
         }
     },
     "extra": {
@@ -30,7 +30,7 @@
         "laravel/framework": "^11.0",
         "monolog/monolog": "^3.0",
         "illuminate/support": "*",
-        "fabiocherici/ultra-config-manager": "dev-main"
+        "ultra/ultra-config-manager": "dev-main"
     },
     "repositories": [
         {
