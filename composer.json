@@ -11,7 +11,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Fabio\\UltraLogManager\\Providers\\UltraLogManagerServiceProvider"
+                "Fabio\\UltraLogManager\\UltraLogManagerServiceProvider"
             ]
         },
         "aliases": {
