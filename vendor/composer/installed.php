@@ -3,7 +3,7 @@
         'name' => 'fabiocherici/ultra-log-manager',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '1cc4951258798715f7434715272c104272d81976',
+        'reference' => 'f33997b92279b91d76dcac669c1d05896a0a62f5',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -87,7 +87,7 @@
         'fabiocherici/ultra-log-manager' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '1cc4951258798715f7434715272c104272d81976',
+            'reference' => 'f33997b92279b91d76dcac669c1d05896a0a62f5',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -603,8 +603,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '3.0.0',
-                1 => '1.0|2.0|3.0',
+                0 => '1.0|2.0|3.0',
+                1 => '3.0.0',
             ),
         ),
         'psr/simple-cache' => array(

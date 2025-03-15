@@ -1,8 +1,8 @@
 <?php
 
-namespace Fabio\UltraLogManager\Providers;
+namespace Ultra\UltraLogManager\Providers;
 
-use Fabio\UltraLogManager\UltraLogManager;
+use Ultra\UltraLogManager\UltraLogManager;
 use Illuminate\Support\ServiceProvider;
 
 class UltraLogManagerServiceProvider extends ServiceProvider

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Fabio\UltraLogManager\Facades;
+namespace Ultra\UltraLogManager\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

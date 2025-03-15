@@ -1,6 +1,6 @@
 <?php
 
-namespace Fabio\UltraLogManager\Logging;
+namespace Ultra\UltraLogManager\Logging;
 
 use Monolog\Formatter\LineFormatter;
 use Monolog\LogRecord;
