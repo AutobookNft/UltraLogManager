@@ -44,6 +44,11 @@ class ComposerStaticInit1bf3f62f2a4047df92279dbc13f8a4cc
         array (
             'Webmozart\\Assert\\' => 17,
         ),
+        'U' => 
+        array (
+            'Ultra\\UltraLogManager\\' => 22,
+            'Ultra\\UltraConfigManager\\' => 25,
+        ),
         'T' => 
         array (
             'TijsVerkoyen\\CssToInlineStyles\\' => 31,
@@ -126,8 +131,6 @@ class ComposerStaticInit1bf3f62f2a4047df92279dbc13f8a4cc
         'F' => 
         array (
             'Fruitcake\\Cors\\' => 15,
-            'Fabio\\UltraLogManager\\' => 22,
-            'Fabio\\UltraConfigManager\\' => 25,
         ),
         'E' => 
         array (
@@ -160,6 +163,14 @@ class ComposerStaticInit1bf3f62f2a4047df92279dbc13f8a4cc
         'Webmozart\\Assert\\' => 
         array (
             0 => __DIR__ . '/..' . '/webmozart/assert/src',
+        ),
+        'Ultra\\UltraLogManager\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
+        ),
+        'Ultra\\UltraConfigManager\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/ultra/ultra-config-manager/src',
         ),
         'TijsVerkoyen\\CssToInlineStyles\\' => 
         array (
@@ -388,14 +399,6 @@ class ComposerStaticInit1bf3f62f2a4047df92279dbc13f8a4cc
         'Fruitcake\\Cors\\' => 
         array (
             0 => __DIR__ . '/..' . '/fruitcake/php-cors/src',
-        ),
-        'Fabio\\UltraLogManager\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src',
-        ),
-        'Fabio\\UltraConfigManager\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/fabiocherici/ultra-config-manager/src',
         ),
         'Egulias\\EmailValidator\\' => 
         array (

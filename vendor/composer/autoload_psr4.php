@@ -8,6 +8,8 @@ $baseDir = dirname($vendorDir);
 return array(
     'voku\\' => array($vendorDir . '/voku/portable-ascii/src/voku'),
     'Webmozart\\Assert\\' => array($vendorDir . '/webmozart/assert/src'),
+    'Ultra\\UltraLogManager\\' => array($baseDir . '/src'),
+    'Ultra\\UltraConfigManager\\' => array($vendorDir . '/ultra/ultra-config-manager/src'),
     'TijsVerkoyen\\CssToInlineStyles\\' => array($vendorDir . '/tijsverkoyen/css-to-inline-styles/src'),
     'Termwind\\' => array($vendorDir . '/nunomaduro/termwind/src'),
     'Symfony\\Polyfill\\Uuid\\' => array($vendorDir . '/symfony/polyfill-uuid'),
@@ -64,8 +66,6 @@ return array(
     'GuzzleHttp\\' => array($vendorDir . '/guzzlehttp/guzzle/src'),
     'GrahamCampbell\\ResultType\\' => array($vendorDir . '/graham-campbell/result-type/src'),
     'Fruitcake\\Cors\\' => array($vendorDir . '/fruitcake/php-cors/src'),
-    'Fabio\\UltraLogManager\\' => array($baseDir . '/src'),
-    'Fabio\\UltraConfigManager\\' => array($vendorDir . '/fabiocherici/ultra-config-manager/src'),
     'Egulias\\EmailValidator\\' => array($vendorDir . '/egulias/email-validator/src'),
     'Dotenv\\' => array($vendorDir . '/vlucas/phpdotenv/src'),
     'Doctrine\\Inflector\\' => array($vendorDir . '/doctrine/inflector/lib/Doctrine/Inflector'),
