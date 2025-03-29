@@ -3,7 +3,23 @@
     "description": "Ultra Log Manager is a library to standardize error and info logging for all Fabio's projects.",
     "type": "library",
     "license": "MIT",
-    "autoload": {
+    "authors": [
+        {
+            "name": "Fabio Cherici", 
+            "email": "fabiocherici@gmail.com" 
+        }
+    ],
+    "require": {
+       "php": "^8.1|^8.2|^8.3",
+        "laravel/framework": "^11.0", 
+        
+        "illuminate/support": "^11.0",
+        "illuminate/log": "^11.0",
+        "illuminate/config": "^11.0", 
+        "monolog/monolog": "^3.0",
+        "ultra/ultra-config-manager": "dev-main" 
+    },
+     "autoload": {
         "psr-4": {
             "Ultra\\UltraLogManager\\": "src/"
         }
@@ -11,31 +27,15 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Ultra\\UltraLogManager\\Providers\\UltraLogManagerServiceProvider"
+                "Ultra\\UltraLogManager\\Providers\\UltraLogManagerServiceProvider" 
             ]
-        },
-        "aliases": {
-            "UltraLog": "Ultra\\UltraLogManager\\Facades\\UltraLog"
         }
     },
-    "authors": [
-        {
-            "name": "fabio cherici",
-            "email": "fabio.cherici@gmail.com"
-        }
-    ],
-    "minimum-stability": "stable",
-    "require": {
-       "php": "^8.1|^8.2|^8.3",
-        "laravel/framework": "^11.0",
-        "monolog/monolog": "^3.0",
-        "illuminate/support": "*",
-        "ultra/ultra-config-manager": "dev-main"
-    },
-    "repositories": [
+    "repositories": [ 
         {
             "type": "vcs",
             "url": "https://github.com/AutobookNft/UltraConfigManager"
         }
-    ]
+    ],
+    "minimum-stability": "stable" 
 }
