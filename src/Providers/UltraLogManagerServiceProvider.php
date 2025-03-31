@@ -2,10 +2,11 @@
 
 namespace Ultra\UltraLogManager\Providers;
 
+use Illuminate\Session\SessionServiceProvider;
 use Ultra\UltraLogManager\UltraLogManager;
 use Illuminate\Support\ServiceProvider;
 
-class UltraLogManagerServiceProvider extends ServiceProvider
+class UltraLogManagerServiceProvider extends SessionServiceProvider
 {
     /**
      * Register any application services.
@@ -14,14 +15,8 @@ class UltraLogManagerServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        
-        // Register the UltraLogManager class
-        $this->app->bind('ultralogmanager', function ($app) {
-            return new UltraLogManager();
-        });
-        
+               
         $this->mergeConfigFrom(__DIR__ . '/../../config/logging.php', 'logging');
-
 
     }
 
