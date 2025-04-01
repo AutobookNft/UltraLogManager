@@ -2,6 +2,7 @@
 
 namespace Ultra\UltraLogManager\Providers;
 
+use Illuminate\Foundation\AliasLoader;
 use Illuminate\Session\SessionServiceProvider;
 use Ultra\UltraLogManager\UltraLogManager;
 use Illuminate\Support\ServiceProvider;
@@ -17,10 +18,9 @@ class UltraLogManagerServiceProvider extends SessionServiceProvider
     {
                
         $this->mergeConfigFrom(__DIR__ . '/../../config/logging.php', 'logging');
+        $this->app->singleton('ultralogmanager', fn () => new UltraLogManager());
 
-        $this->app->singleton('ultralogmanager', function () {
-            return new UltraLogManager(); // o la tua classe principale
-        });
+        $this->app->alias('ultralogmanager', UltraLogManager::class);
 
     }
 
