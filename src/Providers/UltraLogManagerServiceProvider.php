@@ -18,6 +18,10 @@ class UltraLogManagerServiceProvider extends SessionServiceProvider
                
         $this->mergeConfigFrom(__DIR__ . '/../../config/logging.php', 'logging');
 
+        $this->app->singleton('ultralogmanager', function () {
+            return new UltraLogManager(); // o la tua classe principale
+        });
+
     }
 
     /**
