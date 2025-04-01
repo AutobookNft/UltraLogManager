@@ -5,20 +5,19 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Fabio Cherici", 
-            "email": "fabiocherici@gmail.com" 
+            "name": "Fabio Cherici",
+            "email": "fabiocherici@gmail.com"
         }
     ],
     "require": {
-       "php": "^8.1|^8.2|^8.3",
-        "laravel/framework": "^11.0", 
+        "php": "^8.1|^8.2|^8.3",
+        "laravel/framework": "^11.0",
         "illuminate/support": "^11.0",
         "illuminate/log": "^11.0",
-        "illuminate/config": "^11.0", 
+        "illuminate/config": "^11.0",
         "monolog/monolog": "^3.0"
-        
     },
-     "autoload": {
+    "autoload": {
         "psr-4": {
             "Ultra\\UltraLogManager\\": "src/"
         }
@@ -26,11 +25,13 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Ultra\\UltraLogManager\\Providers\\UltraLogManagerServiceProvider" 
-            ]
+                "Ultra\\UltraLogManager\\Providers\\UltraLogManagerServiceProvider"
+            ],
+            "aliases": {
+                "UltraLog": "Ultra\\UltraLogManager\\Facades\\UltraLog"
+            }
         }
     },
-    
-    "minimum-stability": "dev", 
-    "prefer-stable": true 
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
