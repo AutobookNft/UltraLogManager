@@ -176,4 +176,30 @@ class UltraLogManager
     {
         $this->log('warning', $type, $message, $context, $channel);
     }
+
+    /**
+     * Log a message with debug level.
+     *
+     * @param string $category The category of the log
+     * @param string $message The message to log
+     * @param array $context Additional context information to log
+     * @return void
+     */
+    public function debug(string $category, string $message, array $context = []): void
+    {
+        Log::debug("[{$category}] {$message}", $context);
+    }
+
+    /**
+     * Log a message with critical level.
+     *
+     * @param string $category The category of the log
+     * @param string $message The message to log
+     * @param array $context Additional context information to log
+     * @return void
+     */
+    public function critical(string $category, string $message, array $context = []): void
+    {
+        Log::critical("[{$category}] {$message}", $context);
+    }
 }
