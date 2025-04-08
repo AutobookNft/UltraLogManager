@@ -33,11 +33,18 @@ class UltraLog extends Facade
      * 🧷 @fallback
      * Get the logger instance, falling back to NullLogger in test contexts.
      *
+     * Resolves the current facade root. If the resolved instance does not implement
+     * LoggerInterface (e.g., during early lifecycle or in test), a NullLogger is returned.
+     *
      * @return LoggerInterface
      */
     protected static function safeLogger(): LoggerInterface
     {
-        return static::getFacadeRoot() ?? new NullLogger();
+        $root = static::getFacadeRoot();
+
+        return $root instanceof LoggerInterface
+            ? $root
+            : new NullLogger();
     }
 
     /**
