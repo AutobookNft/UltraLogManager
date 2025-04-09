@@ -1,6 +1,6 @@
 <?php
 
-use Fabio\UltraLogManager\Logging\CustomizeFormatter;
+use Ultra\UltraLogManager\Logging\CustomizeFormatter;
 
 return [
 
