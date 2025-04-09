@@ -1,37 +1,103 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Ultra\UltraLogManager\Exceptions;
 
 use Exception;
-use Illuminate\Support\Facades\Log;
+use Psr\Log\LoggerInterface;
+use Throwable;
 
+/**
+ * 🎯 CustomException – Oracoded Ultra Logging Exception
+ *
+ * Custom exception class for the Ultra ecosystem, designed to carry a string-based
+ * error code and log its occurrence with enriched context.
+ *
+ * 🧱 Structure:
+ * - Extends base Exception for standard compatibility
+ * - Stores a string error code ($stringCode)
+ * - Logs instantiation details via an injected logger
+ *
+ * 📡 Communicates:
+ * - With logging system via injected LoggerInterface
+ * - With callers via $stringCode accessor
+ *
+ * 🧪 Testable:
+ * - Logger injectable for mocking
+ * - No static dependencies
+ */
 class CustomException extends Exception
 {
+    /**
+     * 🧱 @property String error code
+     *
+     * Unique identifier for the error, used for logging and debugging.
+     *
+     * @var string
+     */
     protected string $stringCode;
 
     /**
-     * Costruttore della CustomException.
+     * 🧱 @dependency Logger instance
      *
-     * @param string $stringCode Codice di errore personalizzato.
-     * @param \Throwable|null $previous Eccezione precedente.
+     * Handles logging of exception instantiation.
+     *
+     * @var LoggerInterface
      */
-    public function __construct(string $stringCode, \Throwable $previous = null)
+    protected LoggerInterface $logger;
+
+    /**
+     * 🎯 Construct a custom exception
+     *
+     * Initializes the exception with a string code, logs its occurrence,
+     * and chains any previous exception.
+     *
+     * 🧱 Structure:
+     * - Sets $stringCode and $logger
+     * - Logs error details with context
+     * - Calls parent constructor with $stringCode as message
+     *
+     * 📡 Communicates:
+     * - Logs via injected logger
+     *
+     * 🧪 Testable:
+     * - Logger mockable
+     * - Parameters injectable
+     *
+     * @param string $stringCode Custom error code
+     * @param LoggerInterface $logger Logger for error tracking
+     * @param Throwable|null $previous Previous exception for chaining
+     */
+    public function __construct(string $stringCode, LoggerInterface $logger, ?Throwable $previous = null)
     {
         $this->stringCode = $stringCode;
+        $this->logger = $logger;
 
-        Log::channel('upload')->error('Errore Gestito', [
-            'Class' => 'CustomException',
+        $this->logger->error('Errore Gestito', [
+            'Class' => self::class,
             'Method' => '__construct',
             'StringCode' => $stringCode,
         ]);
 
-        parent::__construct( 'Messaggio personalizzato: '.$stringCode, 1, $previous); // Messaggio vuoto e codice 0
+        parent::__construct($stringCode, 1, $previous);
     }
 
     /**
-     * Ottiene il codice di errore personalizzato.
+     * 🎯 Retrieve the custom error code
      *
-     * @return string
+     * Provides access to the string-based error identifier.
+     *
+     * 🧱 Structure:
+     * - Simple getter for $stringCode
+     *
+     * 📡 Communicates:
+     * - Returns code to callers
+     *
+     * 🧪 Testable:
+     * - Pure function, no side effects
+     *
+     * @return string The custom error code
      */
     public function getStringCode(): string
     {
