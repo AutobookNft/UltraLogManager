@@ -1,5 +1,7 @@
 <?php 
 
+declare(strict_types=1);
+
 namespace Ultra\UltraLogManager\Sanitizer;
 
 use Ultra\UltraLogManager\Contracts\ContextSanitizerInterface;
