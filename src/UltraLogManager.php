@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Ultra\UltraLogManager;
 
+use Monolog\Logger;
 use Psr\Log\LoggerInterface;
 use Stringable;
 
@@ -37,7 +38,7 @@ use Stringable;
  * @package   Ultra\UltraLogManager
  * @author    Fabio Cherici <fabiocherici@gmail.com>
  * @license   MIT
- * @version   1.3.2‑oracode
+ * @version   1.3.3‑fixed
  * @since     1.0.0
  *
  * @configReads  ultra_log_manager.log_channel
@@ -68,9 +69,16 @@ class UltraLogManager implements LoggerInterface
      */
     public function __construct(LoggerInterface $logger, array $config = [])
     {
-        $this->logger         = $logger;
-        $this->config         = $config;
-        $this->defaultChannel = $config['log_channel'] ?? $logger->getName() ?? 'ultra_log_manager';
+        $this->logger = $logger;
+        $this->config = $config;
+        
+        // Fixed: Use only config, don't try to call getName() on PSR-3 interface
+        $this->defaultChannel = $config['log_channel'] ?? 'ultra_log_manager';
+        
+        // If the logger is Monolog, we could do this (but it's not guaranteed):
+        // if ($logger instanceof \Monolog\Logger) {
+        //     $this->defaultChannel = $config['log_channel'] ?? $logger->getName() ?? 'ultra_log_manager';
+        // }
     }
 
     /** @inheritDoc */
