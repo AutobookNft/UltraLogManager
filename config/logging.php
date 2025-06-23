@@ -1,7 +1,5 @@
 <?php
 
-use Ultra\UltraLogManager\Logging\CustomizeFormatter;
-
 return [
 
     /*
@@ -38,7 +36,7 @@ return [
             'driver' => 'daily',
             'path' => storage_path('logs/ultra_log_manager.log'),
             'level' => 'debug',
-            'tap' => [CustomizeFormatter::class], // Mantienilo solo se necessario per formattare i log
+            // Tap rimosso perché non necessario - UEM usa ULM via DI
             'days' => 7,  // Numero di giorni per cui conservare i log
         ],
         

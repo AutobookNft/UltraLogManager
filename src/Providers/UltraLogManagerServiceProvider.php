@@ -8,6 +8,7 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
+use Monolog\Formatter\LineFormatter;
 use Psr\Log\LogLevel;
 use Ultra\UltraLogManager\Contracts\ContextSanitizerInterface;
 use Ultra\UltraLogManager\Sanitizer\NoOpSanitizer;
@@ -34,7 +35,7 @@ use Ultra\UltraLogManager\UltraLogManager;
  * @package     Ultra\UltraLogManager\Providers
  * @author      Fabio Cherici <fabiocherici@gmail.com>
  * @license     MIT
- * @version     1.0.1‑oracode
+ * @version     1.0.2‑multiline
  */
 final class UltraLogManagerServiceProvider extends ServiceProvider
 {
@@ -57,7 +58,21 @@ final class UltraLogManagerServiceProvider extends ServiceProvider
             $monoLevel = Logger::toMonologLevel($psrLevel);   // convert to Monolog int
 
             $mono = new Logger($channel);
-            $mono->pushHandler(new StreamHandler($logPath, $monoLevel));
+            
+            // Create StreamHandler
+            $handler = new StreamHandler($logPath, $monoLevel);
+            
+            // Configure LineFormatter to allow inline line breaks
+            // This is crucial for multi-line log messages!
+            $formatter = new LineFormatter(
+                null,    // Default format
+                null,    // Default date format  
+                true,    // allowInlineLineBreaks = true (THIS IS THE KEY!)
+                true     // ignoreEmptyContextAndExtra = true
+            );
+            
+            $handler->setFormatter($formatter);
+            $mono->pushHandler($handler);
 
             return new UltraLogManager($mono, $cfg);
         });
